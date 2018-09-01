@@ -137,7 +137,7 @@ function gameWin() {
             $(".container").css("display", "none");
             $("#final__score").html(`You scored ${star} Star(s) within ${seconds} seconds taking ${moves} moves.`);
             $(".pop__up").css("display", "block");
-            $(".pop__up").addClass("animated bounceIn");
+            $(".pop__up").addClass("animated zoomIn");
             matchedCardsNumbers = 0;
             clearTime();
         }, 700);
