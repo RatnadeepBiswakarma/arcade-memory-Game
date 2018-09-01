@@ -10,8 +10,8 @@
  *   - add each card's HTML to the page
  */
 const cards = document.querySelectorAll(".card");
-let array = [];     // array list that holds all the cards
-let openCards = [];  // list that holds the two open cards
+let array = []; // array list that holds all the cards
+let openCards = []; // list that holds the two open cards
 let isTimerRunning = false;
 let moves = 0;
 let seconds = 0;
@@ -133,12 +133,14 @@ function resetGame() {
 // game win function (to do what will be done after the game is won)
 function gameWin() {
     if (matchedCardsNumbers === 16) {
-        $(".container").css("display", "none");
-        $("#final__score").html(`You scored ${star} Star(s) within ${seconds} seconds taking ${moves} moves.`);
-        $(".pop__up").css("display", "block");
-        $(".pop__up").addClass("animated bounceIn");
-        matchedCardsNumbers = 0;
-        clearTime();
+        setTimeout(() => {
+            $(".container").css("display", "none");
+            $("#final__score").html(`You scored ${star} Star(s) within ${seconds} seconds taking ${moves} moves.`);
+            $(".pop__up").css("display", "block");
+            $(".pop__up").addClass("animated bounceIn");
+            matchedCardsNumbers = 0;
+            clearTime();
+        }, 700);
     }
 }
 // replay button event listener
