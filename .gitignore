@@ -1,0 +1,4 @@
+# those gulp and nmp packages are excluded
+node_modules
+sass
+gulpfile.js
