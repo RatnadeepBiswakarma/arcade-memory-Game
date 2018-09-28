@@ -12,9 +12,13 @@
 const cards = document.querySelectorAll(".card");
 let array = []; // array list that holds all the cards
 let openCards = []; // list that holds the two open cards
-let isTimerRunning = false;
+
 let moves = 0;
-let seconds = 0;
+let counter = {
+    isTimerRunning: false,
+    min: 0,
+    sec: 0
+}
 let matchedCardsNumbers = 0;
 let star = 3;
 
@@ -46,11 +50,11 @@ shuffle(array);
 
 
 // function to start the game and flip card
-$(".card").on("click", function () {
+$(".card").on("click", function() {
     $(this).addClass("open show animated flipInY");
     let card = (this);
     openCards.push(card);
-    if (isTimerRunning === false) {
+    if (counter.isTimerRunning === false) {
         time();
     }
     if (openCards.length == 2) {
@@ -70,7 +74,7 @@ function matchCards() {
     let nameOne = $(cardOne).attr("name");
     let nameTwo = $(cardTwo).attr("name");
     if (nameOne === nameTwo) {
-        setTimeout(function () {
+        setTimeout(function() {
             openCards = [];
             $(cardOne).removeClass("flipInY");
             $(cardTwo).removeClass("flipInY");
@@ -82,14 +86,14 @@ function matchCards() {
         starGrade();
     } else {
 
-        setTimeout(function () {
+        setTimeout(function() {
             openCards = [];
             $(cardOne).removeClass("open flipInY");
             $(cardTwo).removeClass("open flipInY");
             $(cardOne).addClass("animated shake red");
             $(cardTwo).addClass("animated shake red");
         }, 0);
-        setTimeout(function () {
+        setTimeout(function() {
             $(cardOne).removeClass("shake red open show animated flipInY");
             $(cardTwo).removeClass("shake red open show animated flipInY");
         }, 500);
@@ -101,18 +105,23 @@ function matchCards() {
 let timeoutID;
 
 function time() {
-    isTimerRunning = true;
-    seconds++;
-    $("#seconds").html(seconds);
+    counter.isTimerRunning = true;
+    if(counter.sec === 60) {
+        counter.min += 1;
+        counter.sec = 0;
+    } else {
+        counter.sec += 1;
+    }
+    $("#seconds").html(`${counter.min} : ${counter.sec}`);
     timeoutID = setTimeout(time, 1000);
 }
 // clear time counting function after the game win
 function clearTime() {
     clearTimeout(timeoutID);
-    $("#seconds").html(0);
+    $("#seconds").html(`00 : 00`);
 }
 // reset event listener
-$(".restart").on("click", function () {
+$(".restart").on("click", function() {
     resetGame();
 });
 // game reset function
@@ -144,10 +153,10 @@ function gameWin() {
     }
 }
 // replay button event listener
-$("#replay").on("click", function () {
-    resetGame();
-})
-// star grade function
+$("#replay").on("click", function() {
+        resetGame();
+    })
+    // star grade function
 function starGrade() {
     if (moves === 16) {
         $(".three").css("color", "white");
