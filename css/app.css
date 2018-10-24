@@ -163,7 +163,14 @@ input[type=button]:active {
 
 #final__score {
   font-size: 20px; }
-
+cite {
+  font-family: Arial, Helvetica, sans-serif;
+  color: grey;
+}
+cite>span {
+  color: red;
+  font-size: 25px;
+}
 @media screen and (max-width: 450px) {
   .deck {
     width: 300px;
