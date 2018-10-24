@@ -50,7 +50,7 @@ shuffle(array);
 
 
 // function to start the game and flip card
-$(".card").on("click", function() {
+$(".card").on("click", function () {
     $(this).addClass("open show animated flipInY");
     let card = (this);
     openCards.push(card);
@@ -74,7 +74,7 @@ function matchCards() {
     let nameOne = $(cardOne).attr("name");
     let nameTwo = $(cardTwo).attr("name");
     if (nameOne === nameTwo) {
-        setTimeout(function() {
+        setTimeout(function () {
             openCards = [];
             $(cardOne).removeClass("flipInY");
             $(cardTwo).removeClass("flipInY");
@@ -86,14 +86,15 @@ function matchCards() {
         starGrade();
     } else {
 
-        setTimeout(function() {
+        setTimeout(function () {
             openCards = [];
             $(cardOne).removeClass("open flipInY");
             $(cardTwo).removeClass("open flipInY");
             $(cardOne).addClass("animated shake red");
             $(cardTwo).addClass("animated shake red");
         }, 0);
-        setTimeout(function() {
+        setTimeout(function () {
+            starGrade();
             $(cardOne).removeClass("shake red open show animated flipInY");
             $(cardTwo).removeClass("shake red open show animated flipInY");
         }, 500);
@@ -106,7 +107,7 @@ let timeoutID;
 
 function time() {
     counter.isTimerRunning = true;
-    if(counter.sec === 60) {
+    if (counter.sec === 60) {
         counter.min += 1;
         counter.sec = 0;
     } else {
@@ -121,7 +122,7 @@ function clearTime() {
     $("#seconds").html(`00 : 00`);
 }
 // reset event listener
-$(".restart").on("click", function() {
+$(".restart").on("click", function () {
     resetGame();
 });
 // game reset function
@@ -135,6 +136,9 @@ function resetGame() {
     shuffle(array);
     stars();
     moves = 0;
+    counter.isTimerRunning = false;
+    counter.min = 0;
+    counter.sec = 0;
     $(".moves").html(0);
     $(".pop__up").css("display", "none");
     $(".container").css("display", "flex");
@@ -144,7 +148,7 @@ function gameWin() {
     if (matchedCardsNumbers === 16) {
         setTimeout(() => {
             $(".container").css("display", "none");
-            $("#final__score").html(`You scored ${star} Star(s) within ${seconds} seconds taking ${moves} moves.`);
+            $("#final__score").html(`You scored ${star} Star(s) within ${counter.min}:${counter.sec} time taking ${moves} moves.`);
             $(".pop__up").css("display", "block");
             $(".pop__up").addClass("animated zoomIn");
             matchedCardsNumbers = 0;
@@ -153,20 +157,20 @@ function gameWin() {
     }
 }
 // replay button event listener
-$("#replay").on("click", function() {
-        resetGame();
-    })
-    // star grade function
+$("#replay").on("click", function () {
+    resetGame();
+})
+// star grade function
 function starGrade() {
-    if (moves === 16) {
+    if (moves === 14) {
         $(".three").css("color", "white");
-        star = 3;
-    } else if (moves === 20) {
-        $(".two").css("color", "white");
         star = 2;
-    } else if (moves === 30) {
-        $(".one").css("color", "white");
+    } else if (moves === 18) {
+        $(".two").css("color", "white");
         star = 1;
+    } else if (moves === 25) {
+        $(".one").css("color", "white");
+        star = 0;
     }
 }
 // star erase function

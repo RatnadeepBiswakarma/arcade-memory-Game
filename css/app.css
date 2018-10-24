@@ -1,12 +1,12 @@
 html {
   -webkit-box-sizing: border-box;
-  box-sizing: border-box; }
+          box-sizing: border-box; }
 
 *,
 *::before,
 *::after {
   -webkit-box-sizing: inherit;
-  box-sizing: inherit; }
+          box-sizing: inherit; }
 
 html,
 body {
@@ -25,15 +25,15 @@ body {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column; }
+      -ms-flex-direction: column;
+          flex-direction: column; }
 
 h1 {
   font-family: 'Open Sans', sans-serif;
@@ -51,18 +51,18 @@ h1 {
   padding: 32px;
   border-radius: 10px;
   -webkit-box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
-  box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
+          box-shadow: 12px 15px 20px 0 rgba(46, 61, 73, 0.5);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   margin: 0 0 3em; }
 
 .deck .card {
@@ -77,17 +77,17 @@ h1 {
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
   -webkit-box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5);
-  box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5); }
+          box-shadow: 5px 2px 20px 0 rgba(46, 61, 73, 0.5); }
 
 .deck .card.open {
   -webkit-transform: rotateY(0);
-  transform: rotateY(0);
+          transform: rotateY(0);
   background: #02b3e4;
   cursor: default;
   pointer-events: none; }
@@ -153,13 +153,13 @@ input[type=button] {
   border: 1px solid grey;
   font-size: 22px;
   -webkit-box-shadow: 8px 8px 15px #767676;
-  box-shadow: 8px 8px 15px #767676;
+          box-shadow: 8px 8px 15px #767676;
   border-radius: 10px;
   cursor: pointer; }
 
 input[type=button]:active {
   -webkit-box-shadow: 2px 2px 5px grey;
-  box-shadow: 2px 2px 5px grey; }
+          box-shadow: 2px 2px 5px grey; }
 
 #final__score {
   font-size: 20px; }
