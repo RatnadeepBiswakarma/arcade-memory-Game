@@ -1,7 +1,7 @@
 # Memory Game Project by Ratnadeep
 
 # Play it live, go to below link
-### [ [Link here](http://ratnadeepbiswakarma.me/Memory-Game/) ]
+### [ [Link here](https://arcade-memory-game.netlify.app/) ]
 
 # Instruction
    * **Click on one card to flip it and see the symbol** 
